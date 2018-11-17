@@ -30,4 +30,3 @@ each(numbers, (item, i) => {
     console.log('Time(ms):', diff.toString());
   }
 });
-
