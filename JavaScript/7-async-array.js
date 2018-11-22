@@ -3,14 +3,19 @@
 const INTERVAL = 10;
 
 class AsyncArray extends Array {
+  interval(ms) {
+    this._interval = ms;
+    return this;
+  }
   [Symbol.asyncIterator]() {
     let time = Date.now();
     let i = 0;
+    const interval = this._interval || INTERVAL;
     return {
       next: () => {
         const now = Date.now();
         const diff = now - time;
-        if (diff > INTERVAL) {
+        if (diff > interval) {
           time = now;
           return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -40,7 +45,9 @@ const timer = setInterval(() => {
 }, 10);
 
 (async () => {
-  const numbers = new AsyncArray(1000).fill(1);
+  const numbers = new AsyncArray(1000)
+    .interval(10)
+    .fill(1);
 
   const begin = process.hrtime.bigint();
   let i = 0;
