@@ -3,7 +3,6 @@
 const numbers = new Array(1000).fill(1);
 
 const each = (array, fn) => {
-  let i = 0;
   const last = array.length - 1;
   const next = i => {
     setTimeout(() => {
@@ -11,7 +10,7 @@ const each = (array, fn) => {
       if (i !== last) next(++i);
     }, 0);
   };
-  next(i);
+  next(0);
 };
 
 let k = 0;
