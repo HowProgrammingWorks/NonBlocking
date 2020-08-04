@@ -17,9 +17,8 @@ const each = (array, fn) => {
         time = now;
         setTimeout(next, 0);
         break;
-      } else {
-        fn(array[i], i++);
       }
+      fn(array[i], i++);
     }
   };
 

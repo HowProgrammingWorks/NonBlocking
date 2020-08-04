@@ -7,6 +7,7 @@ class AsyncArray extends Array {
     this._interval = ms;
     return this;
   }
+
   [Symbol.asyncIterator]() {
     let time = Date.now();
     let i = 0;
@@ -25,12 +26,11 @@ class AsyncArray extends Array {
               });
             }, 0);
           });
-        } else {
-          return Promise.resolve({
-            value: this[i],
-            done: i++ === this.length
-          });
         }
+        return Promise.resolve({
+          value: this[i],
+          done: i++ === this.length
+        });
       }
     };
   }

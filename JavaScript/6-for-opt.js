@@ -22,12 +22,11 @@ const range = {
               });
             }, 0);
           });
-        } else {
-          return Promise.resolve({
-            value,
-            done: value++ === this.end + 1
-          });
         }
+        return Promise.resolve({
+          value,
+          done: value++ === this.end + 1
+        });
       }
     };
   }
