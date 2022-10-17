@@ -11,4 +11,3 @@
   clearInterval(timer);
   console.dir({ i, k });
 })();
-

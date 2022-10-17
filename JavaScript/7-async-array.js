@@ -1,6 +1,6 @@
 'use strict';
 
-const INTERVAL = 10;
+const INTERVAL = 100;
 
 class AsyncArray extends Array {
   interval(ms) {
@@ -45,8 +45,8 @@ const timer = setInterval(() => {
 }, 10);
 
 (async () => {
-  const numbers = new AsyncArray(1000)
-    .interval(10)
+  const numbers = new AsyncArray(10000)
+    .interval(100)
     .fill(1);
 
   const begin = process.hrtime.bigint();
