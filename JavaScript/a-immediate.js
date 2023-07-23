@@ -4,7 +4,7 @@ class AsyncArray extends Array {
   [Symbol.asyncIterator]() {
     let i = 0;
     return {
-      next: () => new Promise(resolve => {
+      next: () => new Promise((resolve) => {
         setImmediate(() => resolve({
           value: this[i],
           done: i++ === this.length
@@ -24,7 +24,7 @@ const timer = setInterval(() => k++, 10);
   const numbers = new AsyncArray(10000).fill(1);
   let i = 0;
   for await (const number of numbers) {
-    if (number) i++;
+    i++;
   }
   clearInterval(timer);
   console.dir({ i, k });

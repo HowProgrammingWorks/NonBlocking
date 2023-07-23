@@ -14,7 +14,7 @@ const range = {
         const diff = now - time;
         if (diff > INTERVAL) {
           time = now;
-          return new Promise(resolve => {
+          return new Promise((resolve) => {
             setTimeout(() => {
               resolve({
                 value,
