@@ -35,7 +35,8 @@ const begin = process.hrtime.bigint();
 
 each(numbers, (item, i) => {
   console.log(i);
-  if (i === 999) {
+  const last = numbers.length - 1;
+  if (i === last) {
     clearInterval(timer);
     const diff = (process.hrtime.bigint() - begin) / 1000000n;
     console.log('Time(ms):', diff.toString());
